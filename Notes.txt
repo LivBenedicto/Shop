@@ -52,7 +52,7 @@ To Controllers works, they depends on data context.
 Treats dependecys : services.(AddScoped or AddTransient or AddSingleton)
         * AddScoped : send the same dbcontext in memory, automatically close the connection.
         * AddTransient : send a new one.
-        * AddSingleton : create a new instance dbcontext per aplication.
+        * AddSingleton : create a new instance dbcontext per application.
 
 PROXY
 Contains additional informations about it.
@@ -61,3 +61,6 @@ Contains additional informations about it.
 AS NO TRACKING
 Returns all the informations 
 * Read only.
+
+DOTNET WATCH RUN
+Everytime that something changes, he automatically starts the application.
