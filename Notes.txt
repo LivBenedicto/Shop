@@ -1,0 +1,63 @@
+MVC
+Model : take user data
+View : front-end
+Controller : manipulate the api requests (routes)
+    * Controller base : pre-configuration Controllers
+
+APP SETTINGS
+Add and configure conections strings 
+* Development : only at development time
+
+API DATA DRIVEN
+Scenarios without business rules.
+Simple CRUD.
+* Can start writing DB or API (code first).
+
+DATA ANNOTATION
+Helps correctly map DB (fine tuning) and apply validation.
+* Have everything thats the SQL Serves have to map, like data types and column name.
+* Schema : [DataType("newType")] changes type, must be compatible with SQL Server.
+
+END POINT
+Url.
+Base : https://localhost:5001, complements with routes.
+* APS.Core standard ports : 5000 (http) and 5001 (https)
+    * Prd always https
+Route : {} puts a parameter.
+    * constraint : {parameter:type}
+Requests types:
+    Get - doesn't have body.
+    Put - [FromBody] parameter : receives json, txt, js, xml etc
+
+MODEL BINDING (ASP.NET)
+Links Json (request body) with C#.
+* Validates if parameter exists in the category.
+
+PARALLEL PROGRAMMING
+Task and Async (creats parallel tasks)
+
+DATA CONTEXT
+Represetation of DB in memory. Enables the map (orientation) of the API.
+
+DATA SET
+Represetation of tables in memory.
+* Scheach on db a teble <nomeTable>
+* Allows: CRUD.
+Exe.: option.UseInMemoryDatabase("Database") or option.(Postgre, SQL Server etc)
+    * ("nameDatabese")
+
+DEPENDENCY INJECTION
+To Controllers works, they depends on data context.
+* The user never stays connect with the db, need to close the connection. ** SQL Server has a connection limit.
+Treats dependecys : services.(AddScoped or AddTransient or AddSingleton)
+        * AddScoped : send the same dbcontext in memory, automatically close the connection.
+        * AddTransient : send a new one.
+        * AddSingleton : create a new instance dbcontext per aplication.
+
+PROXY
+Contains additional informations about it.
+* When get an item from db through Entity Framework, creates a proxy.
+
+AS NO TRACKING
+Returns all the informations 
+* Read only.
