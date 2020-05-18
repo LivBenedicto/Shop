@@ -63,4 +63,16 @@ Returns all the informations
 * Read only.
 
 DOTNET WATCH RUN
-Everytime that something changes, he automatically starts the application.
+Everytime that something changes, he automatically restarts the application.
+
+INTEGRATE API WITHOUT PASSWORD
+connection string : "Integrated Security=SSPI"
+
+DOTNET TOOL
+Access to all Entity Framework commands.
+* Exe.: generate or change db.
+** dotnet tool install --global dotnet-ef
+** dotnet add package Microsoft.EntityFrameworkCore.Design
+** dotnet-ef migrations add InitialCreate
+** dotnet ef database update
+

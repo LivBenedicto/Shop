@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Builder; // construção dos apps
-using Microsoft.AspNetCore.Hosting; // aplicação self-hosting
+using Microsoft.AspNetCore.Builder; // apps constructions
+using Microsoft.AspNetCore.Hosting; // application self-hosting
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,7 +22,10 @@ namespace Shop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(option => option.UseInMemoryDatabase("Database"));
+            // services.AddDbContext<DataContext>(option => option.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(
+                option => option.UseSqlServer(Configuration.GetConnectionString("connectionString"))
+            );
             services.AddScoped<DataContext, DataContext>();
         }
 
