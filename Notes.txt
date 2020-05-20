@@ -108,3 +108,7 @@ AddResponseCompression : compress Json and send to the screen.
 CACHE
 Add caching to the header.
 services.AddResponseCaching() (global) or [ResponseCache(parameters)] (method).
+
+CORS
+Cross-Origin Resource Sharing, - W3C partern.
+Allows requests between differents domains.
