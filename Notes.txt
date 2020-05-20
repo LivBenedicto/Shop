@@ -89,4 +89,10 @@ Used for token authentication.
 
 Autorization
 What the user can do.
-* 
+
+Services
+Outsource : generates a token if the user exists.
+
+CLAIMS
+User authentication.
+** SecurityAlgorithms.HmacSha256Signature : URI that point to encryption 256 bits HMAC.
