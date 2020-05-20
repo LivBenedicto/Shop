@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Shop.Data;
 
 namespace Shop
@@ -57,6 +58,10 @@ namespace Shop
                 option => option.UseSqlServer(Configuration.GetConnectionString("connectionString"))
             );
             services.AddScoped<DataContext, DataContext>();
+
+            services.AddSwaggerGen(options => {
+                options.SwaggerDoc("version1", new OpenApiInfo { Title = "Shop API", Version = "version1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,9 +71,14 @@ namespace Shop
 
             app.UseHttpsRedirection(); // force apis to respond about https
 
+            app.UseSwagger();
+            app.UseSwaggerUI(options => {
+                options.SwaggerEndpoint("/swagger/version1/swagger.json", "Shop API Version1");
+            });
+
             app.UseRouting(); // ASP.NET MVC Routes
 
-            app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(cors => cors.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseAuthentication();
             app.UseAuthorization();
