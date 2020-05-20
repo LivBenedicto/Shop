@@ -96,3 +96,15 @@ Outsource : generates a token if the user exists.
 CLAIMS
 User authentication.
 ** SecurityAlgorithms.HmacSha256Signature : URI that point to encryption 256 bits HMAC.
+
+VERSION CONTROL
+Directly in the method or in the lass.
+Routes : /version1/name
+
+COMPRESSION
+Zip the information.
+AddResponseCompression : compress Json and send to the screen.
+
+CACHE
+Add caching to the header.
+services.AddResponseCaching() (global) or [ResponseCache(parameters)] (method).

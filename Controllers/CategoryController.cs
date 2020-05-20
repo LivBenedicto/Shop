@@ -9,7 +9,7 @@ using Shop.Models;
 
 namespace Shop.Controllers
 {
-    [Route("categories")]
+    [Route("version1/categories")]
     public class CategoryController : ControllerBase
     {
         [HttpGet]
