@@ -76,3 +76,17 @@ Access to all Entity Framework commands.
 ** dotnet-ef migrations add InitialCreate
 ** dotnet ef database update
 
+Authentication
+Who is the user.
+API is never always connected. User pass login transformed by token (each requisition the
+token is send : Autorization)
+* package Microsoft.AspNetCore.Authentication
+** Token : hash, - JWT (Json Web Token) when decrypted.
+
+PRIVATE KEY
+Used for token authentication.
+** once create if changed, all the token is invalidated.
+
+Autorization
+What the user can do.
+* 
