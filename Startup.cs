@@ -53,11 +53,10 @@ namespace Shop
                 };
             });
 
-            // services.AddDbContext<DataContext>(option => option.UseInMemoryDatabase("Database"));
-            services.AddDbContext<DataContext>(
-                option => option.UseSqlServer(Configuration.GetConnectionString("connectionString"))
-            );
-            services.AddScoped<DataContext, DataContext>();
+            services.AddDbContext<DataContext>(option => option.UseInMemoryDatabase("Database"));
+            // services.AddDbContext<DataContext>(
+            //     option => option.UseSqlServer(Configuration.GetConnectionString("connectionString"))
+            // );
 
             services.AddSwaggerGen(options => {
                 options.SwaggerDoc("version1", new OpenApiInfo { Title = "Shop API", Version = "version1" });

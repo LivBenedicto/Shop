@@ -38,8 +38,13 @@ namespace Shop.Controllers
 
             try
             {
+                model.Role = "employee";
+
                 context.Users.Add(model);
                 await context.SaveChangesAsync();
+
+                model.Password = ""; // needs encrypt
+
                 return Ok(model);
             }
             catch (Exception)
@@ -62,8 +67,9 @@ namespace Shop.Controllers
             if (user == null)
                 return NotFound(new { message = "Invalid username or password"});
 
-            var token = TokenService.GenerateToken(user);
-
+            string token = TokenService.GenerateToken(user);
+            
+            user.Password = ""; // needs encrypt
             return new { user = user, token = token };
         }
     

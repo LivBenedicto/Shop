@@ -117,4 +117,4 @@ DOCUMENTATION
 Package Swashbuckle : Swagger.
 * Startup.cs
 https://localhost:5001/swagger/index.html (visual)
-https://localhost:5001//swagger/version1/swagger.json (html)
+https://localhost:5001/swagger/version1/swagger.json
